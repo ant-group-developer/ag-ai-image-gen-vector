@@ -7,7 +7,6 @@ services:
       - "${AI_SERVER_PORT}:8000"
     environment:
       PYTHONUNBUFFERED: ${PYTHONUNBUFFERED}
-    deploy:
-      resources:
-        limits:
-          memory: ${MEMORY_LIMIT}
+    restart: unless-stopped
+    mem_limit: ${MEMORY_LIMIT}
+    memswap_limit: ${MEMORY_LIMIT}
